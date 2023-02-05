@@ -1,7 +1,7 @@
 describe('Navigation', ()=>{
 
     it('Navigate to first page', ()=>{
-        cy.visit('https://askomdch.com/');
+        cy.visit('/');
     })
 
     it('Refresh page', ()=>{
@@ -9,20 +9,20 @@ describe('Navigation', ()=>{
     })
 
     it('Forcing refresh page (cleaning cache)', ()=>{
-        cy.visit('https://askomdch.com/store/');
+        cy.visit('/');
         cy.reload();
     })
 
     it('Back to previous page', ()=>{
-        cy.visit('https://askomdch.com/');
-        cy.visit('https://askomdch.com/store/');
+        cy.visit('/');
+        cy.visit('/');
         cy.go('back');
         //another way is: cy.go(-1)
     })
 
     it('Navigate to forward in a page', ()=>{
-        cy.visit('https://askomdch.com/');
-        cy.visit('https://askomdch.com/store/');
+        cy.visit('/');
+        cy.visit('/store/');
         cy.go('back');
         cy.go('forward');
         //another way is: cy.go(1)
