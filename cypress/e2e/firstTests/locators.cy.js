@@ -1,3 +1,5 @@
+require('@cypress/xpath');
+
 describe('Locators', ()=>{
 
     it('Get locator using tag', ()=>{
@@ -7,7 +9,7 @@ describe('Locators', ()=>{
 
     it('Get locator using attribute', ()=>{
         cy.visit('/account');
-        cy.get('{name="username"}');
+        cy.get('[name="username"]');
     })
 
     it('Get locator using attribute and tag', ()=>{
@@ -22,6 +24,12 @@ describe('Locators', ()=>{
 
     it('Get locator using class', ()=>{
         cy.visit('/account');
-        cy.get('.woocommerce-Button .woocommerce-button .button .woocommerce-form-register__submit');
+        cy.get('.woocommerce-Button.woocommerce-button.button.woocommerce-form-register__submit');
     })
+
+    it('Get locator using xpath', ()=>{
+        cy.visit('/account');
+        cy.xpath('//*[@id="username"]');
+    })
+
 })
